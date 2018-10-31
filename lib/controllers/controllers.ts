@@ -16,6 +16,7 @@ export class UserDataController{
             });
         } else {
             // res.send ('Empty Request');
+            console.log ('Empty Request');
             UserData.find({}, (err, userData) => {
                 if(err){
                     console.log ('Eror getting user data');
