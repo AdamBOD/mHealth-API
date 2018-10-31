@@ -7,19 +7,27 @@ const UserData = mongoose.model('UserData', UserDataSchema);
 export class UserDataController{
     public getUserDataByID (req: Request, res: Response) {
         if (req.query.userID != null) {
-            console.log ('Getting user data');
             UserData.findById(req.query.userID, (err, userData) => {
                 if(err){
+                    console.log ('Eror getting user data');
                     res.send(err);
                 }
                 res.json(userData);
             });
         } else {
-            res.send ('Empty Request');
+            // res.send ('Empty Request');
+            UserData.find({}, (err, userData) => {
+                if(err){
+                    console.log ('Eror getting user data');
+                    res.send(err);
+                }
+                res.json(userData);
+            });
         }
     }
 
-    public addNewUserData (req: Request, res: Response) {                
+    // Needs to be x-www-form-urlencoded
+    public addNewUserData (req: Request, res: Response) { 
         let newUserData = new UserData (req.body);
     
         newUserData.save((err, userData) => {

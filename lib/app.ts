@@ -9,7 +9,7 @@ class App {
 
     public app: express.Application;
     public routePrv: Routes = new Routes();
-    public mongoUrl: string = 'mongodb://localhost/UserData';
+    public mongoUrl: string = 'mongodb://admin:admin01!@ds147213.mlab.com:47213/userdata';
     public mongoClient = new MongoClient();
 
     constructor() {
