@@ -3,7 +3,7 @@ import { UserDataSchema, LogSchema } from '../models/models';
 import { Request, Response } from 'express';
 
 const UserData = mongoose.model('UserData', UserDataSchema);
-const LogData = mongoose.model('log', LogSchema);
+const LogData = mongoose.model('Log', LogSchema);
 
 export class UserDataController {
     public getUserDataByID (req: Request, res: Response) {
