@@ -43,7 +43,7 @@ export class UserDataController {
 
 export class LogDataController {
     public getLog (req: Request, res: Response) {
-        LogData.find ({}, (err, logData) => {
+        LogData.findOne ({}, (err, logData) => {
             if(err){
                 console.log ('Eror getting user data');
                 res.send(err);
