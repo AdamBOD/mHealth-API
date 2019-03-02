@@ -20,13 +20,3 @@ export const UserDataSchema = new Schema({
         type: Number
     }
 });
-
-export const LogSchema = new Schema({
-    message: {
-        type: String
-    },
-    time: {
-        type: Date,
-        default: Date.now
-    }
-})

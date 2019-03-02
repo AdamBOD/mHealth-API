@@ -1,9 +1,8 @@
 import { Request, Response } from 'express';
-import { UserDataController, LogDataController } from '../controllers/controllers';
+import { UserDataController } from '../controllers/controllers';
 
 export class Routes {
     public userDataController: UserDataController = new UserDataController ();
-    public logDataController: LogDataController = new LogDataController ();
 
     public routes(app): void {
         app.route('/').get((req: Request, res: Response) => {
@@ -12,9 +11,6 @@ export class Routes {
         
         app.route('/data').get (this.userDataController.getUserDataByID)
                           .post (this.userDataController.addNewUserData);
-
-        app.route('/log').get (this.logDataController.getLog)
-                         .post (this.logDataController.addLog);
 
         app.route('/login').post ((req: Request, res: Response) => {
             if (req.query.userID == null) {
